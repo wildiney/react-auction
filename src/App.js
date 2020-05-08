@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Auction from './components/Auction'
+
 
 function App() {
+  const products = [
+    { title: "Desenho 01", author: "Author 01", initialValue: "30,00", imagem: "https://picsum.photos/seed/picsum/1280/800" },
+    { title: "Desenho 02", author: "Author 02", initialValue: "30,00", imagem: "https://placeimg.com/1280/800" }
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {products.map((prod) => {
+        return <Auction
+          title={prod.title}
+          author={prod.author}
+          initialValue={prod.initialValue}
+          imagem={prod.imagem}
+        />
+      })}
     </div>
   );
 }
