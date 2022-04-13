@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./
+      dockerfile: dockerfiles/frontend/Dockerfile
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - './:/app'
+      - '/app/node_modules'
